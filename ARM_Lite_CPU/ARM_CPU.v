@@ -19,6 +19,9 @@ module ARM_CPU
 );
 	wire Hazard_PCWrite;
 	wire Hazard_IFIDWrite;
+	
+	wire PCSrc_wire;
+	wire [63:0] jump_PC_wire;
 
 	always @(posedge CLOCK) begin
 		if (Hazard_PCWrite !== 1'b1) begin
@@ -33,8 +36,6 @@ module ARM_CPU
 	end
 
   /* Stage : Instruction Fetch */
-  wire PCSrc_wire;
-  wire [63:0] jump_PC_wire;
   wire [63:0] IFID_PC;
   wire [31:0] IFID_IC;
   IFID cache1 (CLOCK, PC, IC, Hazard_IFIDWrite, IFID_PC, IFID_IC);
@@ -410,7 +411,7 @@ module IC
   output reg [31:0] instruction_out
 );
 
-  reg [8:0] Data[63:0];
+  reg [7:0] Data[63:0];
 
   initial begin
     // LDUR x0, [x2, #3]
