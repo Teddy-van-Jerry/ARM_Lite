@@ -420,7 +420,7 @@ module IC
     // LDUR x0, [x2, #3]
         Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
     // f8403040
-   // ADDI x0, x0, 9
+   // ADDI x3, x3, 5
      Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
 
     
