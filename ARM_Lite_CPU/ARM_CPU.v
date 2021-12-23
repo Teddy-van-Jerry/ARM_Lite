@@ -414,10 +414,22 @@ module IC
   reg [7:0] Data[63:0];
 
   initial begin
+  
+
+
+    // LDUR x0, [x2, #3]
+        Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+    // f8403040
+   // ADDI x0, x0, 9
+     Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
+
+    
+/*
     // LDUR x0, [x2, #3]
     Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+    // f8403040
 
-    // ADD x9, x0, x5
+    // ADD x9, x0, x5 
     Data[4] = 8'h8b; Data[5] = 8'h05; Data[6] = 8'h00; Data[7] = 8'h09;
 
     // ORR x10, x1, x9
@@ -443,6 +455,8 @@ module IC
 
     // B #10
     Data[36] = 8'h14; Data[37] = 8'h00; Data[38] = 8'h00; Data[39] = 8'h0a;
+*/
+
   end
 
   always @(PC_in) begin
@@ -749,6 +763,17 @@ module ARM_Control
       control_isZeroBranch <= 1'b1;
       control_isUnconBranch <= 1'b0;
       control_regwrite <= 1'b0;
+      
+    end else if (instruction[10:1] == 10'b1001000100) begin //ADDI
+        control_isZeroBranch <= 1'b0;
+        control_isUnconBranch <= 1'b0;
+        control_mem2reg <= 1'b0;
+        control_memRead <= 1'b0;
+        control_memwrite <= 1'b0;
+        control_alusrc <= 1'b1;
+        control_aluop <= 2'b10;
+        control_regwrite <= 1'b1;
+        
 
     end else begin // R-Type Instructions
       control_isZeroBranch <= 1'b0;
