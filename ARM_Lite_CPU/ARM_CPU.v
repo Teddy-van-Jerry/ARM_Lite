@@ -704,6 +704,9 @@ module SignExtend
     end else if (inputInstruction[31:24] == 8'b10110100) begin // CBZ
         outImmediate[19:0] = inputInstruction[23:5];
         outImmediate[63:20] = {64{outImmediate[19]}};
+        
+    end else if (inputInstruction[26:22] == 5'b00100 || inputInstruction[26:22] == 5'b01000) begin // I Type
+        outImmediate[12:0] = inputInstruction[21:10];
 
     end else begin // D Type, ignored if R type
         outImmediate[9:0] = inputInstruction[20:12];
