@@ -417,35 +417,13 @@ module IC
   
 
 
-     // LDUR x0, [x2, #3]
-     Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
 
-     // ADDI x3, x3, 5
+    // LDUR x0, [x2, #3]
+        Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+    // f8403040
+   // ADDI x3, x3, 5
      Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
-    
-     // SUBI x9, x9, 5
-     Data[8] = 8'hd1; Data[9] = 8'h00; Data[10] = 8'h15; Data[11] = 8'h29;
 
-     // EOR x8, x5, x6
-     Data[12] = 8'hca; Data[13] = 8'h06; Data[14] = 8'h00; Data[15] = 8'ha8;
-     
-     // ANDI x7, x5, 7
-     Data[16] = 8'h92; Data[17] = 8'h00; Data[18] = 8'h1c; Data[19] = 8'ha7;
-     
-     // LSL x6, x6, 4
-     Data[20] = 8'hd3; Data[21] = 8'h60; Data[22] = 8'h0c; Data[23] = 8'hc6;
-     
-     //MUL x4, x5, x4
-      Data[24] = 8'h9b; Data[25] = 8'h06; Data[26] = 8'h01; Data[27] = 8'h04;
-     
-     // B 5
-      Data[28] = 8'h14; Data[29] = 8'h00; Data[30] = 8'h00; Data[31] = 8'h09;
-     
-     // CBZ 5 x0
-     // Data[12] = 8'hb4; Data[13] = 8'h00; Data[14] = 8'h00; Data[15] = 8'h42;
-     
-     
-     
     
 /*
     // LDUR x0, [x2, #3]
@@ -454,28 +432,20 @@ module IC
 
     // ADD x9, x0, x5 
     Data[4] = 8'h8b; Data[5] = 8'h05; Data[6] = 8'h00; Data[7] = 8'h09;
-
     // ORR x10, x1, x9
     Data[8] = 8'haa; Data[9] = 8'h09; Data[10] = 8'h00; Data[11] = 8'h2a;
-
     // AND x11, x9, x0
     Data[12] = 8'h8a; Data[13] = 8'h00; Data[14] = 8'h01; Data[15] = 8'h2b;
-
     // SUB x12 x0 x11
     Data[16] = 8'hcb; Data[17] = 8'h0b; Data[18] = 8'h00; Data[19] = 8'h0c;
-
     // STUR x9, [x3, #6]
     Data[20] = 8'hf8; Data[21] = 8'h00; Data[22] = 8'h60; Data[23] = 8'h69;
-
     // STUR x10, [x4, #6]
     Data[24] = 8'hf8; Data[25] = 8'h00; Data[26] = 8'h60; Data[27] = 8'h8a;
-
     // STUR x11, [x5, #6]
     Data[28] = 8'hf8; Data[29] = 8'h00; Data[30] = 8'h60; Data[31] = 8'hab;
-
     // STUR x12, [x6, #6]
     Data[32] = 8'hf8; Data[33] = 8'h00; Data[34] = 8'h60; Data[35] = 8'hcc;
-
     // B #10
     Data[36] = 8'h14; Data[37] = 8'h00; Data[38] = 8'h00; Data[39] = 8'h0a;
 */
@@ -881,7 +851,6 @@ module ARM_Control
        control_aluop <= 2'b10;
        control_regwrite <= 1'b1;
        
-        
 
     end else begin // R-Type Instructions
       control_isZeroBranch <= 1'b0;
