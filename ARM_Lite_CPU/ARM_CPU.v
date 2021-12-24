@@ -116,7 +116,7 @@ module ARM_CPU
   wire [63:0] alu_2_wire;
   Forward_ALU_Mux lal2 (IDEX_reg2_data, write_reg_data, mem_address_out, Forward_B, alu_2_wire);
 
-  wire [3:0] alu_main_control_wire;
+  wire [4:0] alu_main_control_wire;
   ALU_Control unit7(IDEX_aluop, IDEX_alu_control, alu_main_control_wire);
 
   wire [63:0] alu_data2_wire;
@@ -417,12 +417,35 @@ module IC
   
 
 
-    // LDUR x0, [x2, #3]
-        Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
-    // f8403040
-   // ADDI x3, x3, 5
-     Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
+     // LDUR x0, [x2, #3]
+     Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
 
+     // ADDI x3, x3, 5
+     Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
+    
+     // SUBI x9, x9, 5
+     Data[8] = 8'hd1; Data[9] = 8'h00; Data[10] = 8'h15; Data[11] = 8'h29;
+
+     // EOR x8, x5, x6
+     Data[12] = 8'hca; Data[13] = 8'h06; Data[14] = 8'h00; Data[15] = 8'ha8;
+     
+     // ANDI x7, x5, 7
+     Data[16] = 8'h92; Data[17] = 8'h00; Data[18] = 8'h1c; Data[19] = 8'ha7;
+     
+     // LSL x6, x6, 4
+     Data[20] = 8'hd3; Data[21] = 8'h60; Data[22] = 8'h0c; Data[23] = 8'hc6;
+     
+     //MUL x4, x5, x4
+      Data[24] = 8'h9b; Data[25] = 8'h06; Data[26] = 8'h01; Data[27] = 8'h04;
+     
+     // B 5
+      Data[28] = 8'h14; Data[29] = 8'h00; Data[30] = 8'h00; Data[31] = 8'h09;
+     
+     // CBZ 5 x0
+     // Data[12] = 8'hb4; Data[13] = 8'h00; Data[14] = 8'h00; Data[15] = 8'h42;
+     
+     
+     
     
 /*
     // LDUR x0, [x2, #3]
@@ -506,18 +529,23 @@ module ALU
 (
   input [63:0] A,
   input [63:0] B,
-  input [3:0] CONTROL,
+  input [4:0] CONTROL,
   output reg [63:0] RESULT,
   output reg ZEROFLAG
 );
   always @(*) begin
     case (CONTROL)
-      4'b0000 : RESULT = A & B;
-      4'b0001 : RESULT = A | B;
-      4'b0010 : RESULT = A + B;
-      4'b0110 : RESULT = A - B;
-      4'b0111 : RESULT = B;
-      4'b1100 : RESULT = ~(A | B);
+      5'b00000 : RESULT = A & B;
+      5'b00001 : RESULT = A | B;
+      5'b00010 : RESULT = A + B;
+      5'b00110 : RESULT = A - B;
+      5'b00111 : RESULT = B;
+      5'b01100 : RESULT = ~(A | B);
+      5'b01101 : RESULT = A ^ B;
+      5'b01111 : RESULT = A >>> B;
+      5'b10000 : RESULT = A << B;
+      5'b10001 : RESULT = A * B;
+      5'b10010 : RESULT = !B; 
       default : RESULT = 64'hxxxxxxxx;
     endcase
 
@@ -536,19 +564,39 @@ module ALU_Control
 (
   input [1:0] ALU_Op,
   input [10:0] ALU_INSTRUCTION,
-  output reg [3:0] ALU_Out
+  output reg [4:0] ALU_Out
 );
   always @(ALU_Op or ALU_INSTRUCTION) begin
     case (ALU_Op)
-      2'b00 : ALU_Out <= 4'b0010;
-      2'b01 : ALU_Out <= 4'b0111;
+      2'b00 : ALU_Out <= 5'b00010;
+      2'b01 : ALU_Out <= 5'b00111;
       2'b10 : begin
+      
+      if (ALU_INSTRUCTION[10:3] == 8'b10110100) begin
+        ALU_Out <= 5'b00111; // CBZ
+      end else if  (ALU_INSTRUCTION[10:3] == 8'b10110101) begin
+        ALU_Out <= 5'b01010; // CBNZ
+      end
 
         case (ALU_INSTRUCTION)
-          11'b10001011000 : ALU_Out <= 4'b0010; // ADD
-          11'b11001011000 : ALU_Out <= 4'b0110; // SUB
-          11'b10001010000 : ALU_Out <= 4'b0000; // AND
-          11'b10101010000 : ALU_Out <= 4'b0001; // ORR
+          11'b10001011000 : ALU_Out <= 5'b00010; // ADD
+          11'b10010001000 : ALU_Out <= 5'b00010; // ADDI
+          11'b10010001001 : ALU_Out <= 5'b00010; // ADDI
+          11'b11001011000 : ALU_Out <= 5'b00110; // SUB
+          11'b11010001000 : ALU_Out <= 5'b00110; // SUBI
+          11'b11010001001 : ALU_Out <= 5'b00110; // SUBI
+          11'b10001010000 : ALU_Out <= 5'b00000; // AND
+          11'b10010010000 : ALU_Out <= 5'b00000; // ANDI
+          11'b10010010001 : ALU_Out <= 5'b00000; // ANDI
+          11'b10101010000 : ALU_Out <= 5'b00001; // ORR
+          11'b10110010000 : ALU_Out <= 5'b00001; // ORRI
+          11'b10110010001 : ALU_Out <= 5'b00001; // ORRI
+          11'b11001010000 : ALU_Out <= 5'b01101; // EOR
+          11'b11010010000 : ALU_Out <= 5'b01101; // EORI
+          11'b11010010001 : ALU_Out <= 5'b01101; // EORI
+          11'b11010011010 : ALU_Out <= 5'b01111; //LSR
+          11'b11010011011 : ALU_Out <= 5'b10000; //LSL
+          11'b10011011000 : ALU_Out <= 5'b10001; //MUL
         endcase
       end
       default : ALU_Out = 4'bxxxx;
@@ -707,6 +755,12 @@ module SignExtend
         
     end else if (inputInstruction[26:22] == 5'b00100 || inputInstruction[26:22] == 5'b01000) begin // I Type
         outImmediate[12:0] = inputInstruction[21:10];
+        
+    end else if (inputInstruction[31:21] == 11'b11010011010) begin // R Type
+        outImmediate[6:0] = inputInstruction[15:10];
+        
+    end else if (inputInstruction[31:21] == 11'b11010011011) begin // R Type
+        outImmediate[6:0] = inputInstruction[15:10];
 
     end else begin // D Type, ignored if R type
         outImmediate[9:0] = inputInstruction[20:12];
@@ -767,6 +821,16 @@ module ARM_Control
       control_isUnconBranch <= 1'b0;
       control_regwrite <= 1'b0;
       
+    end else if (instruction[10:3] == 8'b10110101) begin // CBNZ
+      control_mem2reg <= 1'bx;
+      control_memRead <= 1'b0;
+      control_memwrite <= 1'b0;
+      control_alusrc <= 1'b0;
+      control_aluop <= 2'b01;
+      control_isZeroBranch <= 1'b1;
+      control_isUnconBranch <= 1'b0;
+      control_regwrite <= 1'b0;
+      
     end else if (instruction[10:1] == 10'b1001000100) begin //ADDI
         control_isZeroBranch <= 1'b0;
         control_isUnconBranch <= 1'b0;
@@ -776,6 +840,47 @@ module ARM_Control
         control_alusrc <= 1'b1;
         control_aluop <= 2'b10;
         control_regwrite <= 1'b1;
+        
+   end else if(instruction[10:1] == 10'b1101000100) begin //SUBI
+       control_isZeroBranch <= 1'b0;
+       control_isUnconBranch <= 1'b0;
+       control_mem2reg <= 1'b0;
+       control_memRead <= 1'b0;
+       control_memwrite <= 1'b0;
+       control_alusrc <= 1'b1;
+       control_aluop <= 2'b10;
+       control_regwrite <= 1'b1;
+       
+   end else if(instruction[10:1] == 10'b1101001000) begin //EORI
+       control_isZeroBranch <= 1'b0;
+       control_isUnconBranch <= 1'b0;
+       control_mem2reg <= 1'b0;
+       control_memRead <= 1'b0;
+       control_memwrite <= 1'b0;
+       control_alusrc <= 1'b1;
+       control_aluop <= 2'b10;
+       control_regwrite <= 1'b1;
+       
+  end else if(instruction[10:1] == 10'b1011001000) begin //ORRI
+       control_isZeroBranch <= 1'b0;
+       control_isUnconBranch <= 1'b0;
+       control_mem2reg <= 1'b0;
+       control_memRead <= 1'b0;
+       control_memwrite <= 1'b0;
+       control_alusrc <= 1'b1;
+       control_aluop <= 2'b10;
+       control_regwrite <= 1'b1;      
+       
+  end else if(instruction[10:1] == 10'b1001001000) begin //ANDI
+       control_isZeroBranch <= 1'b0;
+       control_isUnconBranch <= 1'b0;
+       control_mem2reg <= 1'b0;
+       control_memRead <= 1'b0;
+       control_memwrite <= 1'b0;
+       control_alusrc <= 1'b1;
+       control_aluop <= 2'b10;
+       control_regwrite <= 1'b1;
+       
         
 
     end else begin // R-Type Instructions
@@ -835,6 +940,43 @@ module ARM_Control
           control_alusrc <= 1'b0;
           control_aluop <= 2'b10;
           control_regwrite <= 1'b1;
+        end
+        
+        11'b11001010000 : begin //EOR
+            control_mem2reg <= 1'b0;
+            control_memRead <= 1'b0;
+            control_memwrite <= 1'b0;
+            control_alusrc <= 1'b0;
+            control_aluop <= 2'b10;
+            control_regwrite <= 1'b1;
+        end
+        
+        
+        11'b11010011010 : begin //LSR
+            control_mem2reg <= 1'b0;
+            control_memRead <= 1'b0;
+            control_memwrite <= 1'b0;
+            control_alusrc <= 1'b1;
+            control_aluop <= 2'b10;
+            control_regwrite <= 1'b1;
+        end
+        
+        11'b11010011011 : begin //LSL
+            control_mem2reg <= 1'b0;
+            control_memRead <= 1'b0;
+            control_memwrite <= 1'b0;
+            control_alusrc <= 1'b1;
+            control_aluop <= 2'b10;
+            control_regwrite <= 1'b1;
+        end
+        
+        11'b10011011000 : begin //MUL
+            control_mem2reg <= 1'b0;
+            control_memRead <= 1'b0;
+            control_memwrite <= 1'b0;
+            control_alusrc <= 1'b0;
+            control_aluop <= 2'b10;
+            control_regwrite <= 1'b1;
         end
 
         default : begin // NOP
