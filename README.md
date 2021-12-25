@@ -1,5 +1,8 @@
-# ARM_Lite
-A lite version of ARM that extends ARM LEGv8
+# ARM Lite
+<a href="https://arm-lite.teddy-van-jerry.org"><img alt="ARM Lite Logo" src="https://arm-lite.teddy-van-jerry.org/ARM_Lite_Logo.png" width=200></a>
+
+This a lite version of ARM CPU that extends ARM LEGv8.
+You are encouraged to visit [our website](https://arm-lite.teddy-van-jerry.org).
 
 ## CPU Design
 ### Features
@@ -7,7 +10,7 @@ ARM Lite CPU has the following features:
 - Subset of standard ARMv8 (64-bit)
 - Pipeline
 - Hazard Detection and Forwarding
-- Instructions
+- 18 Instructions
 
 ### Supported Instructions
 | Instruction Type |       Instructions       |
