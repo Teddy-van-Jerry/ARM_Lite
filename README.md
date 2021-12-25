@@ -1,5 +1,5 @@
 # ARM Lite
-<a href="https://arm-lite.teddy-van-jerry.org"><img alt="ARM Lite Logo" src="https://arm-lite.teddy-van-jerry.org/ARM_Lite_Logo.png" width=200></a>
+<a href="https://arm-lite.teddy-van-jerry.org"><img alt="ARM Lite Logo" src="Figure/Logo/ARM_Lite_Logo.png" width=200></a>
 
 This a lite version of ARM CPU that extends ARM LEGv8.
 You are encouraged to visit [our website](https://arm-lite.teddy-van-jerry.org).
