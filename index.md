@@ -15,9 +15,7 @@ ARM Lite CPU has the following features:
 - Instructions
 
 ### Supported Instructions
-| Instruction Type |       Instructions       |
-
-| :--------------: | ------------------------ |
+| **Instruction Type** |       **Instructions**       |
 | R Type           | `ADD`, `SUB`, `AND`, `ORR`, `EOR`, `LSL`, `LSR`, `MUL` |
 | I Type           | `ADDI`, `SUBI`, `ANDI`, `ORRI`, `EORI` |
 | D Type           | `LDUR`, `STUR` |
