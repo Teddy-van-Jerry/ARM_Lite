@@ -17,11 +17,12 @@ ARM Lite CPU has the following features:
 ### Supported Instructions
 | Instruction Type |       Instructions       |
 | :--------------: | ------------------------ |
-| R Type           | `ADD`, `SUB`, `AND`, `ORR`, `EOR`, `LSL`, `LSR`, `MUL`
-| I Type           | `ADDI`, `SUBI`, `ANDI`, `ORRI`, `EORI`
-| D Type           | `LDUR`, `STUR`
-| B Type           | `B`
-| CB Type          | `CBZ`, `CBNZ`
+
+| R Type           | `ADD`, `SUB`, `AND`, `ORR`, `EOR`, `LSL`, `LSR`, `MUL` |
+| I Type           | `ADDI`, `SUBI`, `ANDI`, `ORRI`, `EORI` |
+| D Type           | `LDUR`, `STUR` |
+| B Type           | `B` |
+| CB Type          | `CBZ`, `CBNZ` |
 
 ### Archiecture
 ![ARM Lite CPU Archiecture](https://arm-lite.teddy-van-jerry.org/wp-content/uploads/2021/12/AMR_Lite_CPU.png)
