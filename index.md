@@ -4,7 +4,8 @@
 
 Lite Version of ARM CPU that Extends ARM LEGv8.
 
-GitHub Repository: [Teddy-van-Jerry/ARM_Lite](https://github.com/Teddy-van-Jerry/ARM_Lite)
+- GitHub Repository: [Teddy-van-Jerry/ARM_Lite](https://github.com/Teddy-van-Jerry/ARM_Lite)
+- Website: https://arm-lite.teddy-van-jerry.org
 
 ## CPU Design
 ### Features
