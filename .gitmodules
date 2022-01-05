@@ -1,3 +1,6 @@
 [submodule "ARM-LEGv8"]
 	path = ARM-LEGv8
 	url = https://github.com/Teddy-van-Jerry/ARM-LEGv8.git
+[submodule "ARM_Lite_Doc"]
+	path = ARM_Lite_Doc
+	url = https://github.com/Teddy-van-Jerry/ARM_Lite_Doc
