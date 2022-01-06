@@ -415,78 +415,55 @@ module IC
 
   initial begin
   
-  // LDUR x0, [x2, #3]
-       Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+        // EXAMPLE 1
   
-       // ADDI x3, x3, 5
-      // Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
+//       // LDUR x0, [x2, #3]
+//       Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+ 
+//       // ADDI x5, x9, 7
+//       Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h1d; Data[7] = 8'h25;
+       
+//       // ANDI x3 x3 3
+//       Data[8] = 8'h92; Data[9] = 8'h00; Data[10] = 8'h0c; Data[11] = 8'h63;
+       
+//       // SUBI x6, x6, 3
+//       Data[12] = 8'hd1; Data[13] = 8'h00; Data[14] = 8'h0c; Data[15] = 8'hc6;
+       
+//       // LSL x7 1
+//       Data[16] = 8'hd3; Data[17] = 8'h60; Data[18] = 8'h04; Data[19] = 8'he7;
+       
+//       // B -3
+//       Data[20] = 8'h17; Data[21] = 8'hff; Data[22] = 8'hff; Data[23] = 8'hfd;
+       
+       // EXAMPLE 2
+       
+       // LDUR x0, [x2, #3]
+       Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+       
+       // LSR x16 1
+       Data[4] = 8'hd3; Data[5] = 8'h40; Data[6] = 8'h06; Data[7] = 8'h10;
+       
+       // EOR x1 x2 x0
+       Data[8] = 8'hca; Data[9] = 8'h00; Data[10] = 8'h00; Data[11] = 8'h41;
+       
+       // CBZ x31, 8
+       Data[12] = 8'hb4; Data[13] = 8'h00; Data[14] = 8'h01; Data[15] = 8'h1f;
+       
+       // ORRI x4 x5 7
+       Data[16] = 8'hb2; Data[17] = 8'h00; Data[18] = 8'h1c; Data[19] = 8'ha4;
+       
+       // EORI x10 x11 11
+       Data[20] = 8'hd2; Data[21] = 8'h00; Data[22] = 8'h2d; Data[23] = 8'h6a;
+       
+       // ORRI x4 x5 7
+       Data[36] = 8'hb2; Data[37] = 8'h00; Data[38] = 8'h1c; Data[39] = 8'ha4;
       
-      // ADDI x5, x9, 7
-       Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h1d; Data[7] = 8'h25;
-       
-       // ADDI x3, x4, x7
-        Data[8] = 8'h8b; Data[9] = 8'h07; Data[10] = 8'h00; Data[11] = 8'h83;
-        
-        // SUBI x6, x6, 3
-        Data[12] = 8'hd1; Data[13] = 8'h00; Data[14] = 8'h0c; Data[15] = 8'hc6;
-        
-        // CBZ x6, 3
-        // Data[16] = 8'hb4; Data[17] = 8'h00; Data[18] = 8'h00; Data[19] = 8'h66;
-        
-        // XXX
-        Data[16] = 8'h8b; Data[17] = 8'h07; Data[18] = 8'h00; Data[19] = 8'h83;
-        
-        // B -3
-        Data[20] = 8'h17; Data[21] = 8'hff; Data[22] = 8'hff; Data[23] = 8'hfd;
-        // Data[16] = 8'h14; Data[17] = 8'h00; Data[18] = 8'h00; Data[19] = 8'h02;
-       // SUBI x9, x9, 5
-       //Data[8] = 8'hd1; Data[9] = 8'h00; Data[10] = 8'h15; Data[11] = 8'h29;
-       
-       
-       
-       // ADDI x3, x4, x7
-       Data[24] = 8'h8b; Data[25] = 8'h07; Data[26] = 8'h00; Data[27] = 8'h83;
+       // EORI x10 x11 11
+       Data[40] = 8'hd2; Data[41] = 8'h00; Data[42] = 8'h2d; Data[43] = 8'h6a;
        
        // STUR x11, [x5, #6]
-       Data[28] = 8'hf8; Data[29] = 8'h00; Data[30] = 8'h60; Data[31] = 8'hab;
-   
-       // STUR x12, [x6, #6]
-       Data[32] = 8'hf8; Data[33] = 8'h00; Data[34] = 8'h60; Data[35] = 8'hcc;
-  
-  /*
-   // LDUR x0, [x2, #3]
-       Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
-      
-      // ADDI x5, x9, 7
-     Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h1d; Data[7] = 8'h25;
-     
-     // ADDI x3, x4, x7
-      Data[8] = 8'h8b; Data[9] = 8'h07; Data[10] = 8'h00; Data[11] = 8'h83;
-      
-      // SUBI x6, x6, 3
-      Data[12] = 8'hd1; Data[13] = 8'h00; Data[14] = 8'h0c; Data[15] = 8'hc6;
-      
-      // CBZ x6, 3
-      // Data[16] = 8'hb4; Data[17] = 8'h00; Data[18] = 8'h00; Data[19] = 8'h66;
-      
-      // B -3
-      Data[16] = 8'h17; Data[17] = 8'hff; Data[18] = 8'hff; Data[19] = 8'hfe;
-      // Data[16] = 8'h14; Data[17] = 8'h00; Data[18] = 8'h00; Data[19] = 8'h02;
-     // SUBI x9, x9, 5
-     //Data[8] = 8'hd1; Data[9] = 8'h00; Data[10] = 8'h15; Data[11] = 8'h29;
-     
-     // ADDI x3, x4, x7
-     Data[24] = 8'h8b; Data[25] = 8'h07; Data[26] = 8'h00; Data[27] = 8'h83;
-     
-     // ADDI x3, x4, x7
-     Data[24] = 8'h8b; Data[25] = 8'h07; Data[26] = 8'h00; Data[27] = 8'h83;
-     
-     // STUR x11, [x5, #6]
-     Data[28] = 8'hf8; Data[29] = 8'h00; Data[30] = 8'h60; Data[31] = 8'hab;
-     
-     // STUR x12, [x6, #6]
-     Data[32] = 8'hf8; Data[33] = 8'h00; Data[34] = 8'h60; Data[35] = 8'hcc;*/
-
+       Data[44] = 8'hf8; Data[45] = 8'h00; Data[46] = 8'h60; Data[47] = 8'hab;
+       
   end
 
   always @(PC_in) begin
