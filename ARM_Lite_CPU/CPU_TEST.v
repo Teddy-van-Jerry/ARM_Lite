@@ -31,7 +31,7 @@ module CPU_TEST;
   initial begin
     CLOCK = 1'b0;
     RESET = 1'b1;
-    #35 $finish;
+    #45 $finish;
   end
   
   /* Toggle the clock */
