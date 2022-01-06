@@ -419,13 +419,13 @@ module IC
 
 
     // LDUR x0, [x2, #3]
-        Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
+     //   Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
     // f8403040
    // ADDI x3, x3, 5
-     Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
+    // Data[4] = 8'h91; Data[5] = 8'h00; Data[6] = 8'h14; Data[7] = 8'h63;
 
     
-/*
+
     // LDUR x0, [x2, #3]
     Data[0] = 8'hf8; Data[1] = 8'h40; Data[2] = 8'h30; Data[3] = 8'h40;
     // f8403040
@@ -447,8 +447,11 @@ module IC
     // STUR x12, [x6, #6]
     Data[32] = 8'hf8; Data[33] = 8'h00; Data[34] = 8'h60; Data[35] = 8'hcc;
     // B #10
-    Data[36] = 8'h14; Data[37] = 8'h00; Data[38] = 8'h00; Data[39] = 8'h0a;
-*/
+    // Data[36] = 8'h14; Data[37] = 8'h00; Data[38] = 8'h00; Data[39] = 8'h08;
+    // CBNZ
+    Data[36] = 8'hb4; Data[37] = 8'h00; Data[38] = 8'h00; Data[39] = 8'hbf;
+    Data[40] = 8'hf8; Data[41] = 8'h00; Data[42] = 8'h60; Data[43] = 8'hcc;
+    Data[44] = 8'hf8; Data[45] = 8'h00; Data[46] = 8'h60; Data[47] = 8'hcc;
 
   end
 
@@ -545,10 +548,8 @@ module ALU_Control
       if (ALU_INSTRUCTION[10:3] == 8'b10110100) begin
         ALU_Out <= 5'b00111; // CBZ
       end else if  (ALU_INSTRUCTION[10:3] == 8'b10110101) begin
-        ALU_Out <= 5'b01010; // CBNZ
-      end
-
-        case (ALU_INSTRUCTION)
+        ALU_Out <= 5'b10010; // CBNZ
+      end else case (ALU_INSTRUCTION)
           11'b10001011000 : ALU_Out <= 5'b00010; // ADD
           11'b10010001000 : ALU_Out <= 5'b00010; // ADDI
           11'b10010001001 : ALU_Out <= 5'b00010; // ADDI
@@ -720,8 +721,12 @@ module SignExtend
         outImmediate[63:26] = {64{outImmediate[25]}};
 
     end else if (inputInstruction[31:24] == 8'b10110100) begin // CBZ
-        outImmediate[19:0] = inputInstruction[23:5];
-        outImmediate[63:20] = {64{outImmediate[19]}};
+        outImmediate[18:0] = inputInstruction[23:5];
+        outImmediate[63:19] = {64{outImmediate[18]}};
+        
+    end else if (inputInstruction[31:24] == 8'b10110101) begin // CBNZ
+        outImmediate[18:0] = inputInstruction[23:5];
+        outImmediate[63:19] = {64{outImmediate[18]}};
         
     end else if (inputInstruction[26:22] == 5'b00100 || inputInstruction[26:22] == 5'b01000) begin // I Type
         outImmediate[12:0] = inputInstruction[21:10];
