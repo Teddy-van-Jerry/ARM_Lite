@@ -8,9 +8,9 @@ env:
   BUILD_TYPE: Release
   CCACHE_VERSION: 4.4
 
-defaults:
-  run:
-    working-directory: ./ARM_Lite_Compiler
+# defaults:
+#  run:
+#    working-directory: ./ARM_Lite_Compiler
 
 jobs:
   build:
@@ -127,7 +127,7 @@ jobs:
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
         execute_process(
           COMMAND cmake
-            -S .
+            -S ./ARM_Lite_Compiler
             -B build
             -D CMAKE_BUILD_TYPE=$ENV{BUILD_TYPE}
             -G Ninja
