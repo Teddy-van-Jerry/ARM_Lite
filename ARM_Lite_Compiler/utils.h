@@ -4,6 +4,7 @@
 #include <algorithm> 
 #include <cctype>
 #include <locale>
+#include <string>
 
 namespace ARM_Compiler {
     // trim from start (in place)
