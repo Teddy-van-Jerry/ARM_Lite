@@ -9,6 +9,7 @@ ac::Vec ac::Compiler::compile(bool* ok) {
         Str instruction = toUpper(trim(instructions_[i])); // take one instruction
         code_.push_back("");
     }
+    return Vec();
 }
 
 ac::Str ac::Compiler::parse(const Str& instruction, bool* ok) {
@@ -36,4 +37,5 @@ ac::Str ac::Compiler::parse(const Str& instruction, bool* ok) {
         (code_.end() - 1)->append(name == "LDUR" ? "11111000010" : "11111000000");
         (code_.end() - 1)->append(num2str(1, 9)); // TODO
     }
+    return Str();
 }
