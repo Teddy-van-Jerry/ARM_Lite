@@ -12,15 +12,15 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="13240073fs"></ZoomEndTime>
-      <Cursor1Time time="8718000fs"></Cursor1Time>
+      <ZoomEndTime time="28118401fs"></ZoomEndTime>
+      <Cursor1Time time="8323000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+      <ValueColumnWidth column_width="106"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
-   <wvobject fp_name="/CPU_TEST/RESET" type="logic">
+   <WVObjectSize size="17" />
+   <wvobject type="logic" fp_name="/CPU_TEST/RESET">
       <obj_property name="ElementShortName">RESET</obj_property>
       <obj_property name="ObjectShortName">RESET</obj_property>
    </wvobject>
@@ -28,27 +28,23 @@
       <obj_property name="ElementShortName">CLOCK</obj_property>
       <obj_property name="ObjectShortName">CLOCK</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/PC" type="array">
+   <wvobject type="array" fp_name="/CPU_TEST/core/PC">
       <obj_property name="ElementShortName">PC[63:0]</obj_property>
       <obj_property name="ObjectShortName">PC[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/unit3/Data" type="array">
-      <obj_property name="ElementShortName">Data[31:0][63:0]</obj_property>
-      <obj_property name="ObjectShortName">Data[31:0][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/mux3/CONTROL_ALUSRC" type="logic">
+   <wvobject type="logic" fp_name="/CPU_TEST/core/mux3/CONTROL_ALUSRC">
       <obj_property name="ElementShortName">CONTROL_ALUSRC</obj_property>
       <obj_property name="ObjectShortName">CONTROL_ALUSRC</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/unit4/outImmediate" type="array">
+   <wvobject type="array" fp_name="/CPU_TEST/core/unit4/outImmediate">
       <obj_property name="ElementShortName">outImmediate[63:0]</obj_property>
       <obj_property name="ObjectShortName">outImmediate[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/main_alu/RESULT" type="array">
+   <wvobject type="array" fp_name="/CPU_TEST/core/main_alu/RESULT">
       <obj_property name="ElementShortName">RESULT[63:0]</obj_property>
       <obj_property name="ObjectShortName">RESULT[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/mem_data_out" type="array">
+   <wvobject type="array" fp_name="/CPU_TEST/core/mem_data_out">
       <obj_property name="ElementShortName">mem_data_out[63:0]</obj_property>
       <obj_property name="ObjectShortName">mem_data_out[63:0]</obj_property>
    </wvobject>
@@ -63,5 +59,33 @@
    <wvobject type="array" fp_name="/CPU_TEST/core/main_alu/RESULT">
       <obj_property name="ElementShortName">RESULT[63:0]</obj_property>
       <obj_property name="ObjectShortName">RESULT[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/CPU_TEST/core/PCSrc_wire">
+      <obj_property name="ElementShortName">PCSrc_wire</obj_property>
+      <obj_property name="ObjectShortName">PCSrc_wire</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/CPU_TEST/core/unit8/conditional_branch_in">
+      <obj_property name="ElementShortName">conditional_branch_in</obj_property>
+      <obj_property name="ObjectShortName">conditional_branch_in</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/CPU_TEST/core/unit8/unconditional_branch_in">
+      <obj_property name="ElementShortName">unconditional_branch_in</obj_property>
+      <obj_property name="ObjectShortName">unconditional_branch_in</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/CPU_TEST/core/unit3/Data[6]">
+      <obj_property name="ElementShortName">[6][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/CPU_TEST/core/unit3/Data[5]">
+      <obj_property name="ElementShortName">[5][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/CPU_TEST/core/unit3/Data[3]">
+      <obj_property name="ElementShortName">[3][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/CPU_TEST/core/unit3/Data[0]">
+      <obj_property name="ElementShortName">[0][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][63:0]</obj_property>
    </wvobject>
 </wave_config>
