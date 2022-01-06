@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3000000fs"></ZoomStartTime>
-      <ZoomEndTime time="40200001fs"></ZoomEndTime>
-      <Cursor1Time time="30000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="13240073fs"></ZoomEndTime>
+      <Cursor1Time time="8718000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="84" />
+   <WVObjectSize size="8" />
    <wvobject fp_name="/CPU_TEST/RESET" type="logic">
       <obj_property name="ElementShortName">RESET</obj_property>
       <obj_property name="ObjectShortName">RESET</obj_property>
@@ -28,332 +28,28 @@
       <obj_property name="ElementShortName">CLOCK</obj_property>
       <obj_property name="ObjectShortName">CLOCK</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/PC_wire" type="array">
-      <obj_property name="ElementShortName">PC_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/IC_wire" type="array">
-      <obj_property name="ElementShortName">IC_wire[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IC_wire[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/mem_address" type="array">
-      <obj_property name="ElementShortName">mem_address[63:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_address[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/mem_data_in" type="array">
-      <obj_property name="ElementShortName">mem_data_in[63:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_in[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/control_memwrite" type="logic">
-      <obj_property name="ElementShortName">control_memwrite</obj_property>
-      <obj_property name="ObjectShortName">control_memwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/control_memread" type="logic">
-      <obj_property name="ElementShortName">control_memread</obj_property>
-      <obj_property name="ObjectShortName">control_memread</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/mem_data_out" type="array">
-      <obj_property name="ElementShortName">mem_data_out[63:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_out[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/RESET" type="logic">
-      <obj_property name="ElementShortName">RESET</obj_property>
-      <obj_property name="ObjectShortName">RESET</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CLOCK" type="logic">
-      <obj_property name="ElementShortName">CLOCK</obj_property>
-      <obj_property name="ObjectShortName">CLOCK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IC" type="array">
-      <obj_property name="ElementShortName">IC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IC[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/mem_data_in" type="array">
-      <obj_property name="ElementShortName">mem_data_in[63:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_in[63:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_TEST/core/PC" type="array">
       <obj_property name="ElementShortName">PC[63:0]</obj_property>
       <obj_property name="ObjectShortName">PC[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/mem_address_out" type="array">
-      <obj_property name="ElementShortName">mem_address_out[63:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_address_out[63:0]</obj_property>
+   <wvobject fp_name="/CPU_TEST/core/unit3/Data" type="array">
+      <obj_property name="ElementShortName">Data[31:0][63:0]</obj_property>
+      <obj_property name="ObjectShortName">Data[31:0][63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TEST/core/mux3/CONTROL_ALUSRC" type="logic">
+      <obj_property name="ElementShortName">CONTROL_ALUSRC</obj_property>
+      <obj_property name="ObjectShortName">CONTROL_ALUSRC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TEST/core/unit4/outImmediate" type="array">
+      <obj_property name="ElementShortName">outImmediate[63:0]</obj_property>
+      <obj_property name="ObjectShortName">outImmediate[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TEST/core/main_alu/RESULT" type="array">
+      <obj_property name="ElementShortName">RESULT[63:0]</obj_property>
+      <obj_property name="ObjectShortName">RESULT[63:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_TEST/core/mem_data_out" type="array">
       <obj_property name="ElementShortName">mem_data_out[63:0]</obj_property>
       <obj_property name="ObjectShortName">mem_data_out[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/control_memwrite_out" type="logic">
-      <obj_property name="ElementShortName">control_memwrite_out</obj_property>
-      <obj_property name="ObjectShortName">control_memwrite_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/control_memread_out" type="logic">
-      <obj_property name="ElementShortName">control_memread_out</obj_property>
-      <obj_property name="ObjectShortName">control_memread_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/Hazard_PCWrite" type="logic">
-      <obj_property name="ElementShortName">Hazard_PCWrite</obj_property>
-      <obj_property name="ObjectShortName">Hazard_PCWrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/Hazard_IFIDWrite" type="logic">
-      <obj_property name="ElementShortName">Hazard_IFIDWrite</obj_property>
-      <obj_property name="ObjectShortName">Hazard_IFIDWrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/PCSrc_wire" type="logic">
-      <obj_property name="ElementShortName">PCSrc_wire</obj_property>
-      <obj_property name="ObjectShortName">PCSrc_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/jump_PC_wire" type="array">
-      <obj_property name="ElementShortName">jump_PC_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">jump_PC_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IFID_PC" type="array">
-      <obj_property name="ElementShortName">IFID_PC[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IFID_PC[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IFID_IC" type="array">
-      <obj_property name="ElementShortName">IFID_IC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IFID_IC[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_memRead" type="logic">
-      <obj_property name="ElementShortName">IDEX_memRead</obj_property>
-      <obj_property name="ObjectShortName">IDEX_memRead</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_write_reg" type="array">
-      <obj_property name="ElementShortName">IDEX_write_reg[4:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_write_reg[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/Control_mux_wire" type="logic">
-      <obj_property name="ElementShortName">Control_mux_wire</obj_property>
-      <obj_property name="ObjectShortName">Control_mux_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_aluop" type="array">
-      <obj_property name="ElementShortName">CONTROL_aluop[1:0]</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_aluop[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_alusrc" type="logic">
-      <obj_property name="ElementShortName">CONTROL_alusrc</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_alusrc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_isZeroBranch" type="logic">
-      <obj_property name="ElementShortName">CONTROL_isZeroBranch</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_isZeroBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_isUnconBranch" type="logic">
-      <obj_property name="ElementShortName">CONTROL_isUnconBranch</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_isUnconBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_memRead" type="logic">
-      <obj_property name="ElementShortName">CONTROL_memRead</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_memRead</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_memwrite" type="logic">
-      <obj_property name="ElementShortName">CONTROL_memwrite</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_memwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_regwrite" type="logic">
-      <obj_property name="ElementShortName">CONTROL_regwrite</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_regwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_mem2reg" type="logic">
-      <obj_property name="ElementShortName">CONTROL_mem2reg</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_mem2reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_aluop_wire" type="array">
-      <obj_property name="ElementShortName">CONTROL_aluop_wire[1:0]</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_aluop_wire[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_alusrc_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_alusrc_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_alusrc_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_isZeroBranch_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_isZeroBranch_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_isZeroBranch_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_isUnconBranch_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_isUnconBranch_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_isUnconBranch_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_memRead_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_memRead_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_memRead_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_memwrite_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_memwrite_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_memwrite_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_regwrite_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_regwrite_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_regwrite_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/CONTROL_mem2reg_wire" type="logic">
-      <obj_property name="ElementShortName">CONTROL_mem2reg_wire</obj_property>
-      <obj_property name="ObjectShortName">CONTROL_mem2reg_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/reg2_wire" type="array">
-      <obj_property name="ElementShortName">reg2_wire[4:0]</obj_property>
-      <obj_property name="ObjectShortName">reg2_wire[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/reg1_data" type="array">
-      <obj_property name="ElementShortName">reg1_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">reg1_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/reg2_data" type="array">
-      <obj_property name="ElementShortName">reg2_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">reg2_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/MEMWB_regwrite" type="logic">
-      <obj_property name="ElementShortName">MEMWB_regwrite</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_regwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/MEMWB_write_reg" type="array">
-      <obj_property name="ElementShortName">MEMWB_write_reg[4:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_write_reg[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/write_reg_data" type="array">
-      <obj_property name="ElementShortName">write_reg_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">write_reg_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/sign_extend_wire" type="array">
-      <obj_property name="ElementShortName">sign_extend_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">sign_extend_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_aluop" type="array">
-      <obj_property name="ElementShortName">IDEX_aluop[1:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_aluop[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_alusrc" type="logic">
-      <obj_property name="ElementShortName">IDEX_alusrc</obj_property>
-      <obj_property name="ObjectShortName">IDEX_alusrc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_isZeroBranch" type="logic">
-      <obj_property name="ElementShortName">IDEX_isZeroBranch</obj_property>
-      <obj_property name="ObjectShortName">IDEX_isZeroBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_isUnconBranch" type="logic">
-      <obj_property name="ElementShortName">IDEX_isUnconBranch</obj_property>
-      <obj_property name="ObjectShortName">IDEX_isUnconBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_memwrite" type="logic">
-      <obj_property name="ElementShortName">IDEX_memwrite</obj_property>
-      <obj_property name="ObjectShortName">IDEX_memwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_regwrite" type="logic">
-      <obj_property name="ElementShortName">IDEX_regwrite</obj_property>
-      <obj_property name="ObjectShortName">IDEX_regwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_mem2reg" type="logic">
-      <obj_property name="ElementShortName">IDEX_mem2reg</obj_property>
-      <obj_property name="ObjectShortName">IDEX_mem2reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_reg1_data" type="array">
-      <obj_property name="ElementShortName">IDEX_reg1_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_reg1_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_reg2_data" type="array">
-      <obj_property name="ElementShortName">IDEX_reg2_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_reg2_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_PC" type="array">
-      <obj_property name="ElementShortName">IDEX_PC[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_PC[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_sign_extend" type="array">
-      <obj_property name="ElementShortName">IDEX_sign_extend[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_sign_extend[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_alu_control" type="array">
-      <obj_property name="ElementShortName">IDEX_alu_control[10:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_alu_control[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_forward_reg1" type="array">
-      <obj_property name="ElementShortName">IDEX_forward_reg1[4:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_forward_reg1[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/IDEX_forward_reg2" type="array">
-      <obj_property name="ElementShortName">IDEX_forward_reg2[4:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_forward_reg2[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/shift_left_wire" type="array">
-      <obj_property name="ElementShortName">shift_left_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">shift_left_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/PC_jump" type="array">
-      <obj_property name="ElementShortName">PC_jump[63:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_jump[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/jump_is_zero" type="logic">
-      <obj_property name="ElementShortName">jump_is_zero</obj_property>
-      <obj_property name="ObjectShortName">jump_is_zero</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_write_reg" type="array">
-      <obj_property name="ElementShortName">EXMEM_write_reg[4:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_write_reg[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_regwrite" type="logic">
-      <obj_property name="ElementShortName">EXMEM_regwrite</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_regwrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_mem2reg" type="logic">
-      <obj_property name="ElementShortName">EXMEM_mem2reg</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_mem2reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/Forward_A" type="array">
-      <obj_property name="ElementShortName">Forward_A[1:0]</obj_property>
-      <obj_property name="ObjectShortName">Forward_A[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/Forward_B" type="array">
-      <obj_property name="ElementShortName">Forward_B[1:0]</obj_property>
-      <obj_property name="ObjectShortName">Forward_B[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_1_wire" type="array">
-      <obj_property name="ElementShortName">alu_1_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_1_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_2_wire" type="array">
-      <obj_property name="ElementShortName">alu_2_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_2_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_main_control_wire" type="array">
-      <obj_property name="ElementShortName">alu_main_control_wire[3:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_main_control_wire[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_data2_wire" type="array">
-      <obj_property name="ElementShortName">alu_data2_wire[63:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_data2_wire[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_main_is_zero" type="logic">
-      <obj_property name="ElementShortName">alu_main_is_zero</obj_property>
-      <obj_property name="ObjectShortName">alu_main_is_zero</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/alu_main_result" type="array">
-      <obj_property name="ElementShortName">alu_main_result[63:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_main_result[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_isZeroBranch" type="logic">
-      <obj_property name="ElementShortName">EXMEM_isZeroBranch</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_isZeroBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_isUnconBranch" type="logic">
-      <obj_property name="ElementShortName">EXMEM_isUnconBranch</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_isUnconBranch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/EXMEM_alu_zero" type="logic">
-      <obj_property name="ElementShortName">EXMEM_alu_zero</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_alu_zero</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/MEMWB_address" type="array">
-      <obj_property name="ElementShortName">MEMWB_address[63:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_address[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/MEMWB_read_data" type="array">
-      <obj_property name="ElementShortName">MEMWB_read_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_read_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_TEST/core/MEMWB_mem2reg" type="logic">
-      <obj_property name="ElementShortName">MEMWB_mem2reg</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_mem2reg</obj_property>
    </wvobject>
 </wave_config>
