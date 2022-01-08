@@ -8,10 +8,6 @@ env:
   BUILD_TYPE: Release
   CCACHE_VERSION: 4.4
 
-# defaults:
-#  run:
-#    working-directory: ./ARM_Lite_Compiler
-
 jobs:
   build:
     name: ${{ matrix.config.name }}
@@ -21,23 +17,23 @@ jobs:
       matrix:
         config:
         - {
-            name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
+            name: "Windows Latest MSVC", artifact: "ARM_Lite_Compiler_Windows-MSVC.7z",
             os: windows-latest,
             cc: "cl", cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           }
         - {
-            name: "Windows Latest MinGW", artifact: "Windows-MinGW.7z",
+            name: "Windows Latest MinGW", artifact: "ARM_Lite_Compiler_Windows-MinGW.7z",
             os: windows-latest,
             cc: "gcc", cxx: "g++"
           }
         - {
-            name: "Ubuntu Latest GCC", artifact: "Linux.7z",
+            name: "Ubuntu Latest GCC", artifact: "ARM_Lite_Compiler_Linux.7z",
             os: ubuntu-latest,
             cc: "gcc", cxx: "g++"
           }
         - {
-            name: "macOS Latest Clang", artifact: "macOS.7z",
+            name: "macOS Latest Clang", artifact: "ARM_Lite_Compiler_macOS.7z",
             os: macos-latest,
             cc: "clang", cxx: "clang++"
           }
@@ -230,7 +226,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: ARM Lite ${{ github.ref }}
         draft: false
         prerelease: false
 
@@ -251,19 +247,19 @@ jobs:
       matrix:
         config:
         - {
-            name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
+            name: "Windows Latest MSVC", artifact: "ARM_Lite_Compiler_Windows-MSVC.7z",
             os: ubuntu-latest
           }
         - {
-            name: "Windows Latest MinGW", artifact: "Windows-MinGW.7z",
+            name: "Windows Latest MinGW", artifact: "ARM_Lite_Compiler_Windows-MinGW.7z",
             os: ubuntu-latest
           }
         - {
-            name: "Ubuntu Latest GCC", artifact: "Linux.7z",
+            name: "Ubuntu Latest GCC", artifact: "ARM_Lite_Compiler_Linux.7z",
             os: ubuntu-latest
           }
         - {
-            name: "macOS Latest Clang", artifact: "macOS.7z",
+            name: "macOS Latest Clang", artifact: "ARM_Lite_Compiler_macOS.7z",
             os: ubuntu-latest
           }
     needs: release
